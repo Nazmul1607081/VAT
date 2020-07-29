@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "265697214664",
+    "firebase_url": "https://vatapp-1fd91.firebaseio.com",
+    "project_id": "vatapp-1fd91",
+    "storage_bucket": "vatapp-1fd91.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265697214664:android:22a79dac848efab90d25fd",
+        "android_client_info": {
+          "package_name": "com.nazmul81.vatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265697214664-22m0dg9nr0gv4qk9n6c1p52va8m4hvnh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCs8IXwFYLxM1zH_96lgQHrkoO_fAbZyQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265697214664-22m0dg9nr0gv4qk9n6c1p52va8m4hvnh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265697214664:android:04c6c411588381840d25fd",
+        "android_client_info": {
+          "package_name": "com.vatapp1234.vat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265697214664-22m0dg9nr0gv4qk9n6c1p52va8m4hvnh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCs8IXwFYLxM1zH_96lgQHrkoO_fAbZyQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265697214664-22m0dg9nr0gv4qk9n6c1p52va8m4hvnh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
