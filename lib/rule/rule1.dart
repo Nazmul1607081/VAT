@@ -1415,8 +1415,10 @@ class _Rule1BodyState extends State<Rule1Body> {
               }
             });
           },
+
+          ///12
           child: Heading(
-            chapno: 'একাদশ অধ্যায়',
+            chapno: 'দ্বাদশ অধ্যায়',
             chapitle: 'মূসক কর্তৃপক্ষ',
           ),
         ),
@@ -1487,8 +1489,10 @@ class _Rule1BodyState extends State<Rule1Body> {
               }
             });
           },
+
+          ///13
           child: Heading(
-            chapno: 'দ্বাদশ অধ্যায়',
+            chapno: 'ত্রয়োদশ অধ্যায়',
             chapitle: 'নিরীক্ষা এবং অনুসন্ধান',
           ),
         ),
@@ -1885,8 +1889,10 @@ class _Rule1BodyState extends State<Rule1Body> {
               }
             });
           },
+
+          ///14
           child: Heading(
-            chapno: 'ত্রয়োদশ অধ্যায়',
+            chapno: 'চতুর্দশ অধ্যায়',
             chapitle: 'বকেয়া কর আদায়',
           ),
         ),
@@ -1932,8 +1938,10 @@ class _Rule1BodyState extends State<Rule1Body> {
               }
             });
           },
+
+          ///15
           child: Heading(
-            chapno: 'চতুর্দশ অধ্যায়',
+            chapno: 'পঞ্চদশ অধ্যায়',
             chapitle: 'ফরম, নোটিশ এবং রেকর্ডপত্র  সংরক্ষণ',
           ),
         ),
@@ -1992,8 +2000,10 @@ class _Rule1BodyState extends State<Rule1Body> {
               }
             });
           },
+
+          ///16
           child: Heading(
-            chapno: 'পঞ্চদশ অধ্যায়',
+            chapno: 'ষোড়শ অধ্যায়',
             chapitle: 'অপরাধ, বিচার ও দন্ড',
           ),
         ),
@@ -2169,8 +2179,10 @@ class _Rule1BodyState extends State<Rule1Body> {
               }
             });
           },
+
+          ///17
           child: Heading(
-            chapno: 'ষোড়শ অধ্যায়',
+            chapno: 'সপ্তদশ অধ্যায়',
             chapitle: 'আপীল ও রিভিশন',
           ),
         ),
@@ -2375,8 +2387,10 @@ class _Rule1BodyState extends State<Rule1Body> {
               }
             });
           },
+
+          ///18
           child: Heading(
-            chapno: 'সপ্তদশ অধ্যায়',
+            chapno: 'অষ্টাদশ অধ্যায়',
             chapitle: 'বিবিধ',
           ),
         ),

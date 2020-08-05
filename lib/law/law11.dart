@@ -51,7 +51,7 @@ class Law11 extends StatefulWidget {
   _Law11State createState() => _Law11State();
 }
 
-bool pdf_nightmnnode = true;
+bool pdf_nightmnnode = false;
 bool pdf_pagemode = false;
 
 class _Law11State extends State<Law11> {

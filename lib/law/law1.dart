@@ -1455,6 +1455,8 @@ class _Law1BodyState extends State<Law1Body> {
               }
             });
           },
+
+          ///11
           child: Heading(
             chapno: 'একাদশ অধ্যায়',
             chapitle: 'কমিশনার কর্তৃক কর নির্ধারণ',
@@ -1655,8 +1657,10 @@ class _Law1BodyState extends State<Law1Body> {
               }
             });
           },
+
+          ///12
           child: Heading(
-            chapno: 'একাদশ অধ্যায়',
+            chapno: 'দ্বাদশ অধ্যায়',
             chapitle: 'মূসক কর্তৃপক্ষ',
           ),
         ),
@@ -1749,7 +1753,7 @@ class _Law1BodyState extends State<Law1Body> {
             });
           },
           child: Heading(
-            chapno: 'দ্বাদশ অধ্যায়',
+            chapno: 'ত্রয়োদশ অধ্যায়',
             chapitle: 'নিরীক্ষা এবং অনুসন্ধান',
           ),
         ),
@@ -1936,7 +1940,7 @@ class _Law1BodyState extends State<Law1Body> {
             });
           },
           child: Heading(
-            chapno: 'ত্রয়োদশ অধ্যায়',
+            chapno: 'চতুর্দশ অধ্যায়',
             chapitle: 'বকেয়া কর আদায়',
           ),
         ),
@@ -2017,7 +2021,7 @@ class _Law1BodyState extends State<Law1Body> {
             });
           },
           child: Heading(
-            chapno: 'চতুর্দশ অধ্যায়',
+            chapno: 'পঞ্চদশ অধ্যায়',
             chapitle: 'ফরম, নোটিশ এবং রেকর্ডপত্র  সংরক্ষণ',
           ),
         ),
@@ -2180,7 +2184,7 @@ class _Law1BodyState extends State<Law1Body> {
             });
           },
           child: Heading(
-            chapno: 'পঞ্চদশ অধ্যায়',
+            chapno: 'ষোড়শ অধ্যায়',
             chapitle: 'অপরাধ, বিচার ও দন্ড',
           ),
         ),
@@ -2272,7 +2276,7 @@ class _Law1BodyState extends State<Law1Body> {
             });
           },
           child: Heading(
-            chapno: 'ষোড়শ অধ্যায়',
+            chapno: 'সপ্তদশ অধ্যায়',
             chapitle: 'আপীল ও রিভিশন',
           ),
         ),
@@ -2551,7 +2555,7 @@ class _Law1BodyState extends State<Law1Body> {
             });
           },
           child: Heading(
-            chapno: 'সপ্তদশ অধ্যায়',
+            chapno: 'অষ্টাদশ অধ্যায়',
             chapitle: 'বিবিধ',
           ),
         ),
