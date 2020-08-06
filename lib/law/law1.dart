@@ -226,7 +226,7 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter2.add(ChapRow(
-                  name: 'কেন্দ্রীয় বা শাখা ইউনিটের নিবন্ধন',
+                  name: 'নিবন্ধন',
                   num: '৫',
                   leftalignment: 20.0,
                   colorno: '0',
@@ -1459,7 +1459,7 @@ class _Law1BodyState extends State<Law1Body> {
           ///11
           child: Heading(
             chapno: 'একাদশ অধ্যায়',
-            chapitle: 'কমিশনার কর্তৃক কর নির্ধারণ',
+            chapitle: 'কর নির্ধারণ',
           ),
         ),
         ListView.builder(

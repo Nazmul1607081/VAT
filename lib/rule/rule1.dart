@@ -558,7 +558,7 @@ class _Rule1BodyState extends State<Rule1Body> {
                   ),
                 );
                 chapter4.add(ChapRow(
-                  name: 'অব্যবহৃত বা ব্যবহারের অনুপযোগী উপকরণের নিম্পত্তিকরণ',
+                  name: 'অব্যবহৃত বা ব্যবহারের অনুপযোগী উপকরণের নিষ্পত্তিকরণ',
                   num: '২৪ক',
                   leftalignment: 5.0,
                   colorno: '0',
@@ -572,7 +572,7 @@ class _Rule1BodyState extends State<Rule1Body> {
                 );
                 chapter4.add(ChapRow(
                   name:
-                      'দুর্ঘটনায় ক্ষতিগ্রস্ত বা ধ্বংসপ্রাপ্ত পণ্যের নিম্পত্তিকরণ',
+                      'দুর্ঘটনায় ক্ষতিগ্রস্ত বা ধ্বংসপ্রাপ্ত পণ্যের নিষ্পত্তিকরণ',
                   num: '২৪খ',
                   leftalignment: 5.0,
                   colorno: '1',
