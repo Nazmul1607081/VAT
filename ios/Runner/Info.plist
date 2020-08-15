@@ -45,6 +45,17 @@
     <true/>
     <key>io.flutter.embedded_views_preview</key>
     <string>YES</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+    	<dict>
+    		<key>CFBundleTypeRole</key>
+    		<string>Editor</string>
+    		<key>CFBundleURLSchemes</key>
+    		<array>
+    			<string>com.googleusercontent.apps.265697214664-s26h0ssn0s99hom5abuitlk1kg6v6nq2</string>
+    		</array>
+    	</dict>
+    </array>
 
 </dict>
 </plist>

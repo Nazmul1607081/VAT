@@ -58,6 +58,8 @@ dependencies:
 
   flutter_windowmanager: ^0.0.2
 
+  device_info: ^0.4.2+6
+
 
 
 

@@ -1,8 +1,10 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vatapp/pages/homepage.dart';
+import 'package:vatapp/sequrity.dart';
 
 class SplashScreen1 extends StatefulWidget {
   @override
@@ -14,12 +16,24 @@ class _SplashScreen1State extends State<SplashScreen1> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(
-        Duration(seconds: 10),
-        () => Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (BuildContext context) {
-              return HomePage();
-            })));
+    FirebaseAuth.instance.onAuthStateChanged.listen((user) {
+      //print(user);
+      if (user != null) {
+        Timer(
+            Duration(seconds: 10),
+            () => Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (BuildContext context) {
+                  return HomePage();
+                })));
+      } else {
+        Timer(
+            Duration(seconds: 10),
+            () => Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (BuildContext context) {
+                  return MySecurity();
+                })));
+      }
+    });
   }
 
   @override
