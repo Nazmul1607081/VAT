@@ -144,7 +144,7 @@ class _MySecurityState extends State<MySecurity> {
               });
               print("code = $code");
               if (check(deviceId1, code)) {
-                Navigator.push(context,
+                Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) => HomePage()));
               } else {
                 Fluttertoast.showToast(
