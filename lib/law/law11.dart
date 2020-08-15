@@ -436,11 +436,84 @@ class _FinalPdfViewState extends State<FinalPdfView> {
     print("n");
 
     screenOff();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _lastScreenOrientation = MediaQuery.of(context).orientation;
+    });
+  }
+
+  Orientation _lastScreenOrientation;
+  _repushViewer() {
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => Law11(
+              name: widget.name,
+              num: widget.num,
+              path: null,
+              gopage: 0,
+              dir: widget.dir,
+            )));
+  }
+
+  int fpageno = 0;
+  _showMaterialDialog() {
+    showDialog(
+        context: context,
+        builder: (_) => new AlertDialog(
+              backgroundColor: Colors.black12,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+              ),
+              title: Text(
+                'Go to the page no:',
+                style: TextStyle(
+                  color: Colors.green,
+                ),
+              ),
+              content: Container(
+                width: 10,
+                height: 30,
+                color: Colors.white,
+                child: TextField(
+                  onChanged: (t) {
+                    fpageno = int.parse(t);
+                  },
+                ),
+              ),
+              actions: <Widget>[
+                FlatButton(
+                  onPressed: () =>
+                      Navigator.of(context, rootNavigator: true).pop(),
+                  child: Text('Cancel'),
+                ),
+                FlatButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => Law11(
+                              name: widget.name,
+                              num: widget.num,
+                              path: null,
+                              gopage: fpageno,
+                              dir: widget.dir,
+                            )));
+                    Navigator.of(context, rootNavigator: true).pop();
+                  },
+                  /*Navigator.of(context).pop(true)*/
+                  child: Text('Go'),
+                ),
+              ],
+            ));
   }
 
   @override
   Widget build(BuildContext context) {
+    if (_lastScreenOrientation != null &&
+        _lastScreenOrientation != MediaQuery.of(context).orientation) {
+      // Completely render the page.
+      Future.delayed(Duration(microseconds: 100), _repushViewer);
+    }
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.keyboard_backspace),
@@ -578,6 +651,13 @@ class _FinalPdfViewState extends State<FinalPdfView> {
             nightMode: pdf_nightmnnode,
             onError: (e) {
               print(e);
+              Fluttertoast.showToast(
+                  msg: "Something Error",
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.CENTER,
+                  backgroundColor: Colors.blueAccent,
+                  textColor: Colors.white,
+                  fontSize: 16.0);
             },
             onRender: (_pages) {
               setState(() {
@@ -632,7 +712,7 @@ class _FinalPdfViewState extends State<FinalPdfView> {
             backgroundColor: Colors.red,
             label: Text("${_currentPage + 1}/${_totalPages}"),
             onPressed: () {
-              // _showMyDialog();
+              _showMaterialDialog();
               /* _pdfViewController.setPage(_currentPage);*/
             },
           )
