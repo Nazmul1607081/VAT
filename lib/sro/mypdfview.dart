@@ -48,6 +48,8 @@ class MyPdfView extends StatefulWidget {
   final sub;
   final num;
   final searchSuggestion;
+  final word;
+  final word1;
 
   const MyPdfView(
       {Key key,
@@ -56,7 +58,9 @@ class MyPdfView extends StatefulWidget {
       this.description,
       this.sub,
       this.num,
-      this.searchSuggestion})
+      this.searchSuggestion,
+      this.word,
+      this.word1})
       : super(key: key);
 
   @override
@@ -260,29 +264,32 @@ class _MyPdfViewState extends State<MyPdfView> {
                       ),
                       color: Color(0xff056608),
                       onPressed: () {
-                        if (widget.searchSuggestion == null) {
-                          var link = widget.title;
-                          if (widget.sub == 'sro' ||
-                              widget.sub == 'babostapotro' ||
-                              widget.sub == 'gades' ||
-                              widget.sub == 'sades' ||
-                              widget.sub == 'sarcharge') {
-                            link = widget.description;
-                          }
-                          print("link");
-                          print(link);
-
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return Law11(
-                              name: link,
-                              num: widget.num,
-                              path: null,
-                              gopage: 0,
-                              dir: widget.sub,
-                            );
-                          }));
+                        var link = (widget.searchSuggestion == null)
+                            ? widget.title
+                            : widget.word1;
+                        if (widget.sub == 'sro' ||
+                            widget.sub == 'babostapotro' ||
+                            widget.sub == 'gades' ||
+                            widget.sub == 'sades' ||
+                            widget.sub == 'sarcharge') {
+                          ///here word is description..
+                          link = (widget.searchSuggestion == null)
+                              ? widget.description
+                              : widget.word;
                         }
+                        print("link");
+                        print(link);
+
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return Law11(
+                            name: link,
+                            num: widget.num,
+                            path: null,
+                            gopage: 0,
+                            dir: widget.sub,
+                          );
+                        }));
                       },
                     ),
                   ),

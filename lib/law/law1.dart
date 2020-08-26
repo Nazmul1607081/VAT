@@ -238,7 +238,7 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter2.add(ChapRow(
-                  name: 'মূসক নিবন্ধন',
+                  name: 'মূসক নিবন্ধন পদ্ধতি',
                   num: '৬',
                   dir: 'law',
                   leftalignment: 20.0,
@@ -688,7 +688,7 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter4.add(ChapRow(
-                  name: 'একক ও বহুবিধ সরবরাহ',
+                  name: 'একই চালানে একাধিক ধরনের পণ্য ও সেবা সরবরাহ',
                   num: '৩৫',
                   leftalignment: 15.0,
                   colorno: '1',
@@ -714,7 +714,8 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter4.add(ChapRow(
-                  name: 'অধিকার',
+                  name:
+                      'অধিকার (rights), ভবিষ্য ক্রয় বা বিক্রয়ের অধিকার (Option) এবং ভাউচার',
                   num: '৩৭',
                   leftalignment: 15.0,
                   dir: 'law',
@@ -755,7 +756,7 @@ class _Law1BodyState extends State<Law1Body> {
                 );
                 chapter4.add(ChapRow(
                   name:
-                      'কর্মচারী বা কর্মকর্তাকে নগদ অর্থের পরির্তে দ্রব্যের মাধ্যমে প্রদত্ত সুবিধার মূল্য',
+                      'কর্মচারী বা কর্মকর্তাকে নগদ অর্থের পরিবর্তে দ্রব্যের মাধ্যমে প্রদত্ত সুবিধার মূল্য',
                   num: '৪০',
                   leftalignment: 15.0,
                   colorno: '0',
@@ -1076,7 +1077,8 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter7.add(ChapRow(
-                  name: 'তামাক এবং এলকোহলযু্ক্ত পণ্যের ক্ষেত্রে বিশেষ পরিকল্প',
+                  name:
+                      'তামাক এবং এ্যালকোহলযু্ক্ত পণ্যের ক্ষেত্রে বিশেষ পরিকল্প',
                   num: '৫৮',
                   leftalignment: 15.0,
                   colorno: '1',
@@ -1115,7 +1117,7 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter7.add(ChapRow(
-                  name: 'সম্পূরক শুল্ক আদায়যোগ্য পণ্যের অনুমিত সরবরাহ',
+                  name: 'সম্পূরক শুল্ক আরোপযোগ্য পণ্যের অনুমিত সরবরাহ',
                   num: '৬১',
                   leftalignment: 15.0,
                   colorno: '0',
@@ -1170,7 +1172,7 @@ class _Law1BodyState extends State<Law1Body> {
               } else {
                 chap18show = true;
                 chapter18.add(ChapRow(
-                  name: 'টার্ণওভার কর আরোপ ও আদায়',
+                  name: 'টার্নওভার কর আরোপ ও আদায়',
                   num: '৬৩',
                   leftalignment: 15.0,
                   colorno: '0',
@@ -1306,7 +1308,8 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter9.add(ChapRow(
-                  name: 'ঋণাত্মক নীট অর্থ জের টানা ব্যতিরেকে ফেরত প্রদান',
+                  name:
+                      'ঋণাত্মক নীট পরিমাণ অর্থ জের টানা ব্যতিরেকে ফেরত প্রদান',
                   num: '৬৯',
                   leftalignment: 15.0,
                   colorno: '1',
@@ -1616,7 +1619,7 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter11.add(ChapRow(
-                  name: 'শুল্ক কর্মকর্তাগণের দায়িত্ব এবং ক্ষমতা',
+                  name: 'কাস্টমস কর্মকর্তাগণের দায়িত্ব এবং ক্ষমতা',
                   num: '৮৮',
                   leftalignment: 15.0,
                   colorno: '0',
@@ -1642,7 +1645,8 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter11.add(ChapRow(
-                  name: 'গোপনীয়তা',
+                  name:
+                      'মূল্য সংযোজন কর আইনের ক্ষেত্রে অন্যান্য আইনের প্রয়োগ',
                   num: '৮৯ক',
                   leftalignment: 5.0,
                   colorno: '0',
@@ -2048,7 +2052,7 @@ class _Law1BodyState extends State<Law1Body> {
                 chap15show = true;
                 chapter15.add(ChapRow(
                   name:
-                      'মূসক নিবন্ধন বা টার্ণওভার কর সনদপত্র ও কর দলিল সংক্রান্ত অপরাধ ও দন্ড',
+                      'মূসক নিবন্ধন বা টার্নওভার কর সনদপত্র ও কর দলিল সংক্রান্ত অপরাধ ও দন্ড',
                   num: '১১১',
                   leftalignment: 10.0,
                   colorno: '0',
@@ -2301,7 +2305,7 @@ class _Law1BodyState extends State<Law1Body> {
               } else {
                 chap17show = true;
                 chapter17.add(ChapRow(
-                  name: 'সরকার কর্তৃক কর অব্যাহতি',
+                  name: 'অব্যাহতি',
                   num: '১২৬',
                   leftalignment: 10.0,
                   colorno: '0',
@@ -2314,7 +2318,7 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter17.add(ChapRow(
-                  name: 'পুরস্কার ও কর্মদক্ষতা প্রণোদনা',
+                  name: 'পুরস্কার ও কর্মদক্ষতা প্রণোদনা প্রদান',
                   num: '১২৬ক',
                   leftalignment: 2.0,
                   colorno: '1',
@@ -2433,7 +2437,7 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter17.add(ChapRow(
-                  name: 'দাখিলপত্রের প্রত্যায়িত অনুলিপি',
+                  name: 'দলিলপত্রের প্রত্যায়িত অনুলিপি',
                   num: '১৩২',
                   leftalignment: 10.0,
                   colorno: '0',
@@ -2486,7 +2490,8 @@ class _Law1BodyState extends State<Law1Body> {
                 );
 
                 chapter17.add(ChapRow(
-                  name: 'মূসক কর্মকর্তা ও কর্মচারীদের',
+                  name:
+                      'মূসক কর্মকর্তা ও কর্মচারীদের ইউনিফর্ম এবং ভাতা নির্ধারণ',
                   num: '১৩৫ক',
                   leftalignment: 2.0,
                   colorno: '0',

@@ -447,7 +447,7 @@ class _Rule1BodyState extends State<Rule1Body> {
           },
           child: Heading(
             chapno: 'তৃতীয় অধ্যায়',
-            chapitle: 'মূসক আরোপ',
+            chapitle: 'মূসক আরোপ: মূসক এজেন্ট, ট্রাভেল এজেন্ট ও ট্যুর অপারেটর',
           ),
         ),
         ListView.builder(
@@ -868,7 +868,7 @@ class _Rule1BodyState extends State<Rule1Body> {
                   ),
                 );
                 chapter6.add(ChapRow(
-                  name: 'মূসক হিসাব রক্ষণ',
+                  name: 'মূসক হিসাবরক্ষণ',
                   num: '৪০',
                   leftalignment: 15.0,
                   colorno: '0',
@@ -938,7 +938,7 @@ class _Rule1BodyState extends State<Rule1Body> {
           },
           child: Heading(
             chapno: 'ষষ্ঠ অধ্যায়',
-            chapitle: 'চালানপত্র এবং দলিলপত্র',
+            chapitle: 'মূল্য সংযোজন কর ও টার্নওভার করের হিসাবরক্ষণ',
           ),
         ),
         ListView.builder(

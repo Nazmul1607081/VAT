@@ -359,6 +359,21 @@ class DataSearch extends SearchDelegate<String> {
               child: Container(
                 padding: EdgeInsets.only(left: 20),
                 child: ListTile(
+                  onTap: () {
+                    ///very new add[
+
+                    ///]
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (BuildContext context) {
+                      return Law11(
+                        name: suggessionList[index].title,
+                        num: suggessionList[index].num,
+                        path: null,
+                        gopage: 0,
+                        dir: suggessionList[index].dir,
+                      );
+                    }));
+                  },
                   contentPadding: EdgeInsets.all(0),
                   dense: true,
                   title: Container(
@@ -417,11 +432,27 @@ class DataSearch extends SearchDelegate<String> {
               }
               i++;
             });
+
             return Card(
               elevation: 5,
               child: Container(
                 padding: EdgeInsets.only(left: 20),
                 child: ListTile(
+                  onTap: () {
+                    /// very new add[
+
+                    ///]
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (BuildContext context) {
+                      return Law11(
+                        name: suggessionList[index].title,
+                        num: suggessionList[index].num,
+                        path: null,
+                        gopage: 0,
+                        dir: suggessionList[index].dir,
+                      );
+                    }));
+                  },
                   contentPadding: EdgeInsets.all(0),
                   dense: true,
                   title: Container(
@@ -439,7 +470,10 @@ class DataSearch extends SearchDelegate<String> {
                 ),
               ),
             );
-          } else if (suggessionList[index].type == 'sro') {
+          }
+
+          ///upore ain bidhe ase...
+          else if (suggessionList[index].type == 'sro') {
             List<TextSpan> textSpanList = [];
             List<TextSpan> textSpanList1 = [];
             textSpanList.add(
@@ -521,6 +555,8 @@ class DataSearch extends SearchDelegate<String> {
               num: suggessionList[index].num,
               sub: suggessionList[index].dir,
               searchSuggestion: true,
+              word1: word1,
+              word: word,
             );
           } else {
             List<TextSpan> textSpanList1 = [];
@@ -566,6 +602,7 @@ class DataSearch extends SearchDelegate<String> {
               num: suggessionList[index].num,
               sub: suggessionList[index].dir,
               searchSuggestion: true,
+              word1: word1,
             );
           }
         });

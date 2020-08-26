@@ -181,6 +181,7 @@ class MyForrmView extends StatefulWidget {
   final sub;
   final num;
   final searchSuggestion;
+  final word1;
 
   const MyForrmView(
       {Key key,
@@ -188,7 +189,8 @@ class MyForrmView extends StatefulWidget {
       this.loc,
       this.sub,
       this.num,
-      this.searchSuggestion})
+      this.searchSuggestion,
+      this.word1})
       : super(key: key);
 
   @override
@@ -209,6 +211,7 @@ class _MyForrmViewState extends State<MyForrmView> {
   String progressString1 = '0.0';
 
   Future<void> startDownloading() async {
+    final wt = widget.title;
     final Directory tempdir = await getExternalStorageDirectory();
     var path = '${tempdir.path}/${widget.sub}${widget.title}.pdf';
     if (widget.sub == 'tariff') {
@@ -392,7 +395,9 @@ class _MyForrmViewState extends State<MyForrmView> {
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
                                   return Law11(
-                                    name: widget.title,
+                                    name: (widget.searchSuggestion == null)
+                                        ? widget.title
+                                        : widget.word1,
                                     num: widget.num,
                                     path: null,
                                     gopage: 0,
