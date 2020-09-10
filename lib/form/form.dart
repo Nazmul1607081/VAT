@@ -211,12 +211,12 @@ class _MyForrmViewState extends State<MyForrmView> {
   String progressString1 = '0.0';
 
   Future<void> startDownloading() async {
-    final wt = widget.title;
+    final wt = (widget.searchSuggestion == null) ? widget.title : widget.word1;
     final Directory tempdir = await getExternalStorageDirectory();
-    var path = '${tempdir.path}/${widget.sub}${widget.title}.pdf';
+    var path = '${tempdir.path}/${widget.sub}${wt}.pdf';
     if (widget.sub == 'tariff') {
       print("tarif type");
-      path = '${tempdir.path}/${widget.sub}${widget.title}';
+      path = '${tempdir.path}/${widget.sub}${wt}';
     }
 
     if (path != null) {
@@ -249,13 +249,13 @@ class _MyForrmViewState extends State<MyForrmView> {
                 url = await FirebaseStorage.instance
                     .ref()
                     .child("${widget.sub}")
-                    .child("${widget.title}.pdf")
+                    .child("${wt}.pdf")
                     .getDownloadURL();
               } else {
                 url = await FirebaseStorage.instance
                     .ref()
                     .child("${widget.sub}")
-                    .child("${widget.title}")
+                    .child("${wt}")
                     .getDownloadURL();
               }
 
@@ -391,7 +391,7 @@ class _MyForrmViewState extends State<MyForrmView> {
                               ],
                             ),
                             onPressed: () {
-                              if (widget.searchSuggestion == null) {
+
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
                                   return Law11(
@@ -404,7 +404,7 @@ class _MyForrmViewState extends State<MyForrmView> {
                                     dir: widget.sub,
                                   );
                                 }));
-                              }
+
                             },
                           ),
                         )
@@ -424,12 +424,10 @@ class _MyForrmViewState extends State<MyForrmView> {
                         ],
                       ),
                       onPressed: () {
-                        if (widget.searchSuggestion == null) {
-                          setState(() {
-                            downloading = 1;
-                            startDownloading();
-                          });
-                        }
+                        setState(() {
+                          downloading = 1;
+                          startDownloading();
+                        });
                       },
                     ),
                   )

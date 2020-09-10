@@ -75,13 +75,14 @@ class _MyPdfViewState extends State<MyPdfView> {
   String progressString1 = '0.0';
 
   Future<void> startDownloading() async {
-    var link = widget.title;
+    var link = (widget.searchSuggestion == null) ? widget.title : widget.word1;
     if (widget.sub == 'sro' ||
         widget.sub == 'babostapotro' ||
         widget.sub == 'gades' ||
         widget.sub == 'sades' ||
         widget.sub == 'sarcharge') {
-      link = widget.description;
+      link =
+          (widget.searchSuggestion == null) ? widget.description : widget.word;
     }
     print("link");
     print(link);
@@ -306,12 +307,10 @@ class _MyPdfViewState extends State<MyPdfView> {
                         ],
                       ),
                       onPressed: () {
-                        if (widget.searchSuggestion == null) {
-                          setState(() {
-                            downloading = 1;
-                            startDownloading();
-                          });
-                        }
+                        setState(() {
+                          downloading = 1;
+                          startDownloading();
+                        });
                       },
                     ),
                   ),

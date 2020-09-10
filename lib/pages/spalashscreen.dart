@@ -21,15 +21,15 @@ class _SplashScreen1State extends State<SplashScreen1> {
       if (user != null) {
         Timer(
             Duration(seconds: 8),
-                () => Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (BuildContext context) {
+            () => Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (BuildContext context) {
                   return HomePage();
                 })));
       } else {
         Timer(
             Duration(seconds: 8),
-                () => Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (BuildContext context) {
+            () => Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (BuildContext context) {
                   return MySecurity();
                 })));
       }
@@ -112,7 +112,7 @@ class _SplashScreen1State extends State<SplashScreen1> {
                                     image: new DecorationImage(
                                         fit: BoxFit.fill,
                                         image:
-                                        new AssetImage("images/vai.jpg"))),
+                                            new AssetImage("images/vai.jpg"))),
                               )),
                         ),
                       ],
