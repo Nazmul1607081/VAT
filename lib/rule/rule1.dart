@@ -440,6 +440,33 @@ class _Rule1BodyState extends State<Rule1Body> {
                     height: 1,
                   ),
                 );
+                chapter3.add(ChapRow(
+                  name: 'অভ্যন্তরীণ ব্যাক-টু-ব্যাক ঋণপত্রের বিপরীতে',
+                  num: '১৮খ',
+                  leftalignment: 15.0,
+                  colorno: '1',
+                  dir: 'rule',
+                ));
+
+                chapter3.add(
+                  SizedBox(
+                    height: 1,
+                  ),
+                );
+                chapter3.add(ChapRow(
+                  name:
+                      'পশ্চাদপদ সংযোগ শিল্প প্রতিষ্ঠানের ক্ষেত্রে পণ্য বা সেবা সরবরাহ',
+                  num: '১৮গ',
+                  leftalignment: 15.0,
+                  colorno: '1',
+                  dir: 'rule',
+                ));
+
+                chapter3.add(
+                  SizedBox(
+                    height: 1,
+                  ),
+                );
 
                 //chap2show = true;
               }
@@ -1386,10 +1413,11 @@ class _Rule1BodyState extends State<Rule1Body> {
                   ),
                 );
                 chapter11.add(ChapRow(
-                  name: 'জরিমানা আরোপের পদ্ধতি',
+                  name:
+                      'ব্যাংক হিসাব অপরিচালনযোগ্য (freeze) করিবার ক্ষমতা ও পদ্ধতি',
                   num: '৬৪',
                   leftalignment: 15.0,
-                  colorno: '1',
+                  colorno: '0',
                   dir: 'rule',
                 ));
 
@@ -1399,11 +1427,10 @@ class _Rule1BodyState extends State<Rule1Body> {
                   ),
                 );
                 chapter11.add(ChapRow(
-                  name:
-                      'ব্যাংক হিসাব অপরিচালনযোগ্য (freeze) করিবার ক্ষমতা ও পদ্ধতি',
+                  name: 'জরিমানা আরোপের পদ্ধতি',
                   num: '৬৫',
                   leftalignment: 15.0,
-                  colorno: '0',
+                  colorno: '1',
                   dir: 'rule',
                 ));
 
@@ -2331,6 +2358,20 @@ class _Rule1BodyState extends State<Rule1Body> {
                 );
                 chapter17.add(ChapRow(
                   name:
+                      'মূসক আইন, 1991 এর অধীন চলতি হিসাব (মূসক-18) এ স্থিত সমাপনী জের সমন্বয়',
+                  num: '১১৮',
+                  leftalignment: 10.0,
+                  colorno: '1',
+                  dir: 'rule',
+                ));
+
+                chapter17.add(
+                  SizedBox(
+                    height: 1,
+                  ),
+                );
+                chapter17.add(ChapRow(
+                  name:
                       'আদেশ, বিজ্ঞপ্তি, ব্যাখ্যা, পরিপত্র, স্পষ্টিকরণ ইত্যাদি জারির ক্ষমতা',
                   num: '১১৮ক',
                   leftalignment: 2.0,
@@ -2344,7 +2385,7 @@ class _Rule1BodyState extends State<Rule1Body> {
                   ),
                 );
                 chapter17.add(ChapRow(
-                  name: 'সরবরাহ প্রদান হইতে সাময়িক বিরতির ঘোষণা।',
+                  name: 'সরবরাহ প্রদান হইতে সাময়িক বিরতির ঘোষণা',
                   num: '১১৮খ',
                   leftalignment: 2.0,
                   colorno: '0',
@@ -2356,12 +2397,11 @@ class _Rule1BodyState extends State<Rule1Body> {
                     height: 1,
                   ),
                 );
-
                 chapter17.add(ChapRow(
                   name:
-                      'মূসক আইন, 1991 এর অধীন চলতি হিসাব (মূসক-18) এ স্থিত সমাপনী জের সমন্বয়',
-                  num: '১১৮',
-                  leftalignment: 10.0,
+                      'স্থানীয় পর্যায়ে মূলধনী যন্ত্রপাতি ও যন্ত্রাংশ উৎপাদনে সুবিধা',
+                  num: '১১৮গ',
+                  leftalignment: 2.0,
                   colorno: '1',
                   dir: 'rule',
                 ));
@@ -2371,6 +2411,7 @@ class _Rule1BodyState extends State<Rule1Body> {
                     height: 1,
                   ),
                 );
+
                 chapter17.add(ChapRow(
                   name: 'রহিতকরণ ও হেফাজতকরণ',
                   num: '১১৯',

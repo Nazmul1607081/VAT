@@ -12,8 +12,14 @@ import 'package:vatapp/law/pdfsettings.dart';
 import 'package:vatapp/pages/homepage.dart';
 import 'package:vatapp/drawerpages/login.dart';
 import 'package:vatapp/sro/pdfview.dart';
+import 'package:vatapp/pages/spalashscreen.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:device_info/device_info.dart';
 
 class MyDrawer extends StatefulWidget {
+  final code;
+
+  const MyDrawer({Key key, this.code}) : super(key: key);
   @override
   _MyDrawerState createState() => _MyDrawerState();
 }
@@ -301,6 +307,62 @@ class _MyDrawerState extends State<MyDrawer> {
                   ),
                 ),
               ),
+              Divider(),
+              Container(
+                child: ListTile(
+                  onTap: () {
+                    String code = '';
+                    FirebaseDatabase database = FirebaseDatabase();
+                    database.setPersistenceEnabled(true);
+                    if (FirebaseAuth.instance.currentUser() != null) {
+                      FirebaseAuth.instance.signOut().then((value) {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (BuildContext context) {
+                          return SplashScreen1();
+                        }));
+                      });
+                    }
+                    /*_getId().then((deviceID) {
+                      database
+                          .reference()
+                          .child('devices')
+                          .child(deviceID)
+                          .once()
+                          .then((c) {
+                        code = c.value['code'];
+                        print("code");
+                        print(code);
+                      }).then((value) {
+                        database
+                            .reference()
+                            .child('devices')
+                            .child(deviceID)
+                            .remove()
+                            .then((value) {
+                          database
+                              .reference()
+                              .child('keys')
+                              .child(code)
+                              .update({
+                            'status': 'false',
+                            'device': '',
+                          }).then((value) {
+                            Navigator.pushReplacement(context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) {
+                              return SplashScreen1();
+                            }));
+                          });
+                        });
+                      });
+                    });*/
+                  },
+                  title: Text('Code Release and signOUT'),
+                  leading: Icon(
+                    Icons.logout,
+                  ),
+                ),
+              ),
               SizedBox(
                 height: 10,
               )
@@ -309,5 +371,18 @@ class _MyDrawerState extends State<MyDrawer> {
         ),
       ),
     );
+  }
+
+  Future<String> _getId() async {
+    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+    if (Theme.of(context).platform == TargetPlatform.iOS) {
+      IosDeviceInfo iosDeviceInfo = await deviceInfo.iosInfo;
+      return iosDeviceInfo.identifierForVendor; // unique ID on iOS
+    } else if (Theme.of(context).platform == TargetPlatform.android) {
+      AndroidDeviceInfo androidDeviceInfo = await deviceInfo.androidInfo;
+      return androidDeviceInfo.androidId; // unique ID on Android
+    } else {
+      return "";
+    }
   }
 }

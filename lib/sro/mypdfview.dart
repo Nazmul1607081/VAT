@@ -98,6 +98,122 @@ class _MyPdfViewState extends State<MyPdfView> {
       }
 
       if (await File(path).exists()) {
+        if (await netCheck()) {
+          print("this start for file size tricks.. in sro type[");
+          var ref;
+
+          ref = await FirebaseStorage.instance
+              .ref()
+              .child("${widget.sub}")
+              .child("$link.pdf");
+
+          ref.getMetadata().then((value) async {
+            if (value.sizeBytes == File(path).lengthSync()) {
+              print("contgras...");
+              if (mounted) {
+                setState(() {
+                  downloadpath = path;
+                  downloading = 2;
+                });
+                setState(() {
+                  progressString1 = '1';
+                });
+              }
+            } else {
+              try {
+                if (mounted) {
+                  final url = await FirebaseStorage.instance
+                      .ref()
+                      .child("${widget.sub}")
+                      .child("$link.pdf")
+                      .getDownloadURL();
+
+                  print(url.toString());
+                  Dio dio = Dio();
+                  dio.download(url.toString(), path,
+                      onReceiveProgress: (rec, total) {
+                    if (mounted) {
+                      setState(() {
+                        progressString =
+                            ((rec / total) * 100).toStringAsFixed(0) + "%";
+                        progressString1 = ((rec / total)).toString();
+                        print(progressString1);
+                      });
+                    }
+
+                    if (progressString == '100%') {
+                      if (mounted) {
+                        setState(() {
+                          downloading = 2;
+                          progressString = "Completed";
+                        });
+                      }
+                      print("Download completed");
+                    }
+                  });
+                }
+              } catch (e) {
+                print(e);
+                Fluttertoast.showToast(
+                    msg: "Something Error",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    backgroundColor: Colors.blueAccent,
+                    textColor: Colors.white,
+                    fontSize: 16.0);
+                if (mounted) {
+                  setState(() {
+                    downloading = 0;
+                  });
+                }
+                //print("dispose");
+              }
+            }
+          });
+
+          final stopwatch = Stopwatch();
+          stopwatch.start();
+
+          print("delaying");
+
+          print("end file size tricks..]");
+
+          ///]
+          ///print("file length important");
+          print(File(path).lengthSync());
+          if (mounted) {
+            setState(() {
+              downloadpath = path;
+              downloading = 2;
+            });
+            setState(() {
+              progressString1 = '1';
+            });
+          }
+        } else {
+          if (mounted) {
+            setState(() {
+              downloadpath = path;
+              downloading = 2;
+            });
+            setState(() {
+              progressString1 = '1';
+            });
+          }
+          print("file length important");
+          print(File(path).lengthSync());
+          if (mounted) {
+            setState(() {
+              downloadpath = path;
+              downloading = 2;
+            });
+            setState(() {
+              progressString1 = '1';
+            });
+          }
+        }
+
+        ///new]
         if (mounted) {
           setState(() {
             downloadpath = path;

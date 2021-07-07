@@ -227,17 +227,143 @@ class _MyForrmViewState extends State<MyForrmView> {
         });
 
         if (await File(path).exists()) {
-          print("file length ");
-          print(File(path).lengthSync());
-          if (mounted) {
-            setState(() {
-              downloadpath = path;
-              downloading = 2;
+          if (await netCheck()) {
+            print("this start for file size tricks..[");
+            var ref;
+            if (widget.sub != 'tariff') {
+              ref = await FirebaseStorage.instance
+                  .ref()
+                  .child("${widget.sub}")
+                  .child("${wt}.pdf");
+            } else {
+              ref = await FirebaseStorage.instance
+                  .ref()
+                  .child("${widget.sub}")
+                  .child("${wt}");
+            }
+
+            ref.getMetadata().then((value) async {
+              if (value.sizeBytes == File(path).lengthSync()) {
+                print("contgras...");
+                if (mounted) {
+                  setState(() {
+                    downloadpath = path;
+                    downloading = 2;
+                  });
+                  setState(() {
+                    progressString1 = '1';
+                  });
+                }
+              } else {
+                try {
+                  if (mounted) {
+                    print("file length else");
+                    //print(File(path).lengthSync());
+
+                    var url;
+                    if (widget.sub != 'tariff') {
+                      url = await FirebaseStorage.instance
+                          .ref()
+                          .child("${widget.sub}")
+                          .child("${wt}.pdf")
+                          .getDownloadURL();
+                    } else {
+                      url = await FirebaseStorage.instance
+                          .ref()
+                          .child("${widget.sub}")
+                          .child("${wt}")
+                          .getDownloadURL();
+                    }
+
+                    print(url.toString());
+
+                    Dio dio = Dio();
+                    dio.download(url.toString(), path,
+                        onReceiveProgress: (rec, total) {
+                      if (mounted) {
+                        setState(() {
+                          print(total);
+                          progressString =
+                              ((rec / total) * 100).toStringAsFixed(0) + "%";
+                          progressString1 = ((rec / total)).toString();
+                          print(progressString);
+                        });
+                      }
+
+                      if (progressString == '100%') {
+                        if (mounted) {
+                          setState(() {
+                            downloading = 2;
+                            progressString = "Completed";
+                          });
+                          print("Download completed");
+                        }
+                      }
+                    });
+                  }
+                } catch (e) {
+                  print(e);
+                  Fluttertoast.showToast(
+                      msg: "Something Error",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      backgroundColor: Colors.blueAccent,
+                      textColor: Colors.white,
+                      fontSize: 16.0);
+                  if (mounted) {
+                    setState(() {
+                      downloading = 0;
+                    });
+                  }
+                  //print("dispose");
+                }
+              }
             });
-            setState(() {
-              progressString1 = '1';
-            });
+
+            final stopwatch = Stopwatch();
+            stopwatch.start();
+
+            print("delaying");
+
+            print("end file size tricks..]");
+
+            ///]
+            ///print("file length important");
+            print(File(path).lengthSync());
+            if (mounted) {
+              setState(() {
+                downloadpath = path;
+                downloading = 2;
+              });
+              setState(() {
+                progressString1 = '1';
+              });
+            }
+          } else {
+            if (mounted) {
+              setState(() {
+                downloadpath = path;
+                downloading = 2;
+              });
+              setState(() {
+                progressString1 = '1';
+              });
+            }
+            print("file length important");
+            print(File(path).lengthSync());
+            if (mounted) {
+              setState(() {
+                downloadpath = path;
+                downloading = 2;
+              });
+              setState(() {
+                progressString1 = '1';
+              });
+            }
           }
+
+          ///net check eend
+
         } else {
           try {
             if (mounted) {
@@ -391,20 +517,18 @@ class _MyForrmViewState extends State<MyForrmView> {
                               ],
                             ),
                             onPressed: () {
-
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return Law11(
-                                    name: (widget.searchSuggestion == null)
-                                        ? widget.title
-                                        : widget.word1,
-                                    num: widget.num,
-                                    path: null,
-                                    gopage: 0,
-                                    dir: widget.sub,
-                                  );
-                                }));
-
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return Law11(
+                                  name: (widget.searchSuggestion == null)
+                                      ? widget.title
+                                      : widget.word1,
+                                  num: widget.num,
+                                  path: null,
+                                  gopage: 0,
+                                  dir: widget.sub,
+                                );
+                              }));
                             },
                           ),
                         )

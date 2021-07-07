@@ -5,27 +5,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:string_validator/string_validator.dart';
-import 'package:vatapp/components/appbar.dart';
-import 'package:vatapp/components/gridview.dart';
 import 'package:vatapp/components/mydrawer.dart';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-import 'package:open_file/open_file.dart';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-import 'package:dio/dio.dart';
-
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:vatapp/components/phoneauth.dart';
 import 'package:vatapp/drawerpages/registration.dart';
 import 'package:vatapp/pages/homepage.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:connectivity/connectivity.dart';
 import '../constants.dart';
 import 'forgotpasswword.dart';
+import 'package:vatapp/widgets/text_widget.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -34,6 +22,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   bool isLoggedin = false;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -180,15 +169,13 @@ class _LoginBodyState extends State<LoginBody> {
         image: DecorationImage(
           image: backgroundimage,
           //image: AssetImage("images/pdfback.jpg"),
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
         ),
       ),
       child: ModalProgressHUD(
         inAsyncCall: showProgress,
         child: ListView(
-          shrinkWrap: true,
-          physics: ScrollPhysics(),
-          children: <Widget>[
+          children: [
             SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -249,7 +236,7 @@ class _LoginBodyState extends State<LoginBody> {
                   ),
                   Material(
                     elevation: 5,
-                    color: Colors.lightBlue,
+                    color: Colors.white12,
                     borderRadius: BorderRadius.circular(32.0),
                     child: MaterialButton(
                       onPressed: () async {
@@ -336,15 +323,81 @@ class _LoginBodyState extends State<LoginBody> {
                       child: Text(
                         "Login",
                         style: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 20.0),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.fromLTRB(10, 10, 5, 10),
+                          child: Material(
+                            color: Color(0xff056608),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            elevation: 5,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MyReg()));
+                              },
+                              child: Container(
+                                padding: EdgeInsets.all(10),
+                                child: Text(
+                                  "Create new account",
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline,
+                                      color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.fromLTRB(5, 10, 10, 10),
+                          child: Material(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            elevation: 5,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            ForgotPassword()));
+                              },
+                              child: Container(
+                                padding: EdgeInsets.all(10),
+                                child: Text(
+                                  "Forget Password",
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline,
+                                      color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Material(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color: Colors.white10,
                     elevation: 5,
                     child: InkWell(
                       onTap: () {
@@ -353,7 +406,7 @@ class _LoginBodyState extends State<LoginBody> {
                         signInWithGoogle();
                       },
                       child: Container(
-                        padding: EdgeInsets.all(5),
+                        padding: EdgeInsets.all(8),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
@@ -362,10 +415,12 @@ class _LoginBodyState extends State<LoginBody> {
                               child: Image.asset("images/google_logo.png"),
                             ),
                             SizedBox(
-                              width: 5,
+                              width: 10,
                             ),
-                            Text(
-                              "Sign In with Google.",
+                            MyText(
+                              label: "Sign In with Google",
+                              color: Colors.white,
+                              size: 20.0,
                             )
                           ],
                         ),
@@ -377,6 +432,7 @@ class _LoginBodyState extends State<LoginBody> {
                   ),
                   Material(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color: Colors.white10,
                     elevation: 5,
                     child: InkWell(
                       onTap: () {
@@ -388,67 +444,28 @@ class _LoginBodyState extends State<LoginBody> {
                                 builder: (context) => LoginScreen()));
                       },
                       child: Container(
-                        padding: EdgeInsets.all(5),
+                        padding: EdgeInsets.all(10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Container(
-                              height: 30,
-                              child: Image.asset("images/phone_icon.png"),
+                            /* Container(
+                          height: 30,
+                          child: Image.asset("images/phone_icon.png"),
+                        ),*/
+                            Icon(
+                              Icons.call,
+                              color: Colors.green,
+                              size: 28,
                             ),
                             SizedBox(
-                              width: 5,
+                              width: 10,
                             ),
-                            Text("Sign In with Phone Number.")
+                            MyText(
+                              label: "Sign In with Phone Number",
+                              color: Colors.white,
+                              size: 20.0,
+                            )
                           ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(10),
-                    child: Material(
-                      color: Color(0xff056608),
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      elevation: 5,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => MyReg()));
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: Text(
-                            "Create new account",
-                            style: TextStyle(
-                                decoration: TextDecoration.underline,
-                                color: Colors.white),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(10),
-                    child: Material(
-                      color: Colors.red,
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      elevation: 5,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ForgotPassword()));
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: Text(
-                            "Forget/Reset Password",
-                            style: TextStyle(
-                                decoration: TextDecoration.underline,
-                                color: Colors.white),
-                          ),
                         ),
                       ),
                     ),

@@ -12,7 +12,7 @@ import 'dart:io';
 
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
-import 'package:http/http.dart' as http;
+
 import 'package:vatapp/constants.dart';
 
 import 'package:vatapp/form/form.dart';
@@ -24,6 +24,8 @@ import 'package:vatapp/tofsil/tofsil1.dart';
 import 'package:vatapp/tofsil/tofsil2.dart';
 
 import 'law1.dart';
+
+import 'package:http/http.dart' as http;
 
 class Law11 extends StatefulWidget {
   final name;
@@ -129,9 +131,79 @@ class _Law11State extends State<Law11> {
           _chashedfile = widget.path;
         });
       } else if (await File(path).exists()) {
-        setState(() {
-          _chashedfile = path;
-        });
+        /// this is for new file size tricks..[
+        if (await netCheck()) {
+          print("this start for file size tricks..[");
+          final StorageReference ref = FirebaseStorage.instance
+              .ref()
+              .child('${widget.dir}')
+              .child('${widget.name}.pdf');
+          String url = (await ref.getDownloadURL()).toString();
+          print("url = " + url);
+
+          ref.getMetadata().then((value) async {
+            if (value.sizeBytes == File(path).lengthSync()) {
+              print("contgras...");
+              setState(() {
+                _chashedfile = path;
+              });
+            } else {
+              final File file = File(path);
+
+              print("file size ");
+              print(widget.dir);
+              print(widget.name);
+              print("file size ]");
+
+              ///////////////////////////////////// akta slash dite hobe '/ er por
+              /*final StorageReference ref =
+            FirebaseStorage.instance.ref().child('${widget.link}');*/
+/////////////[
+              /// I should change the temp.pdf as required after all law file uploaded
+              final StorageReference ref = FirebaseStorage.instance
+                  .ref()
+                  .child('${widget.dir}')
+                  .child('${widget.name}.pdf');
+
+              print("firestorage");
+              print(widget.dir);
+              print('${widget.name}.pdf');
+
+              ////////]
+              final StorageFileDownloadTask downloadTask =
+                  ref.writeToFile(file);
+              final int totalByte = (await downloadTask.future).totalByteCount;
+              print(totalByte);
+
+              if (mounted) {
+                setState(() {
+                  _chashedfile = file.path;
+                  print("set file before disposed");
+
+                  /*databaseReference
+            .collection("form")
+            .document("${widget.id}")
+            .updateData({'file': file.toString()});*/
+                });
+              }
+            }
+          });
+
+          final stopwatch = Stopwatch();
+          stopwatch.start();
+
+          http.Response r = await http.get(url);
+          print("delaying");
+
+          print("end file size tricks..]");
+
+          ///]
+
+        } else {
+          setState(() {
+            _chashedfile = path;
+          });
+        }
       } else {
         final net = await netCheck();
         if (!net) {
@@ -513,7 +585,7 @@ class _FinalPdfViewState extends State<FinalPdfView> {
       Future.delayed(Duration(microseconds: 100), _repushViewer);
     }
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.keyboard_backspace),

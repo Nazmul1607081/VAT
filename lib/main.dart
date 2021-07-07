@@ -1,15 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:device_info/device_info.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:vatapp/sequrity.dart';
 import 'dart:async';
-
+import 'model/key.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:vatapp/pages/spalashscreen.dart';
+import 'package:vatapp/service/key_service.dart';
 
-void main() {
-  runApp(new MaterialApp(
-    home: new MyApp(),
-  ));
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -46,9 +50,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: SplashScreen1(),
-      ),
+      home: Scaffold(body: SplashScreen1()),
     );
   }
 }

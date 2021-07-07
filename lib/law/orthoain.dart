@@ -100,6 +100,40 @@ class _OthoAinBodyState extends State<OthoAinBody> {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (BuildContext context) {
                   return Law11(
+                    name: "অর্থ আইন, ২০২১",
+                    num: num,
+                    path: null,
+                    gopage: 0,
+                    dir: 'orthoain',
+                  );
+                }));
+              },
+              child: Text(
+                "অর্থ আইন, ২০২১",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Shobuj Nolua',
+                  fontSize: 22,
+                ),
+              ),
+            ),
+          ),
+          Container(
+            height: 60,
+            margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
+            child: RaisedButton(
+              elevation: 10,
+              //color: Color(0xC5C5C7),
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18.0),
+                //side: BorderSide(color: Colors.red),
+              ),
+              onPressed: () {
+                print("mat pressed");
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (BuildContext context) {
+                  return Law11(
                     name: "Finance Act 2020",
                     num: num,
                     path: null,

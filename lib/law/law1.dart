@@ -340,7 +340,7 @@ class _Law1BodyState extends State<Law1Body> {
                 );
                 chapter2.add(ChapRow(
                   name:
-                      'পরিবর্তিত তথ্য অবহিতকরণে নিবন্ধিত বা তালিকাভু্কত ব্যক্তির দায়িত্ব',
+                      'পরিবর্তিত তথ্য অবহিতকরণে নিবন্ধিত বা তালিকাভু্ক্ত ব্যক্তির দায়িত্ব',
                   num: '১৪',
                   leftalignment: 15.0,
                   dir: 'law',
@@ -452,7 +452,8 @@ class _Law1BodyState extends State<Law1Body> {
                 );
                 chapter3.add(ChapRow(
                   num: '২০',
-                  name: 'আমদানিকৃত সেবার ক্ষেত্রে গ্রহীতার নিকট হইতে কর আদায়',
+                  name:
+                      'আমদানিকৃত সেবার ক্ষেত্রে গ্রহীতার নিকট হইতে (reverse charged) কর আদায়',
                   leftalignment: 15.0,
                   colorno: '1',
                   dir: 'law',
@@ -983,7 +984,7 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter6.add(ChapRow(
-                  name: 'সমন্বিত কর চালানপত্র এবং উৎসে কর কর্তন সনদপত্র',
+                  name: 'উৎসে কর কর্তন সনদপত্র',
                   num: '৫৩',
                   leftalignment: 15.0,
                   dir: 'law',
@@ -1579,7 +1580,7 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter11.add(ChapRow(
-                  name: 'ব্যর্থতা বা অনিয়মের ক্ষেত্রে জরিমানা আরোপ',
+                  name: 'ব্যর্থতা, অনিয়ম বা কর ফাঁকির ক্ষেত্রে জরিমানা আরোপ',
                   num: '৮৫',
                   leftalignment: 15.0,
                   dir: 'law',
@@ -1593,7 +1594,7 @@ class _Law1BodyState extends State<Law1Body> {
                 );
                 chapter11.add(ChapRow(
                   name:
-                      'ন্যায় নির্ণয়ার্থ কাযধারা গ্রহণে মূসক কর্মকর্তাগণের আর্থিক সীমা',
+                      'ন্যায় নির্ণয়ার্থ (adjudication) কার্যধারা গ্রহণে মূসক কর্মকর্তাগণের আর্থিক সীমা',
                   num: '৮৬',
                   leftalignment: 15.0,
                   colorno: '0',
@@ -1689,8 +1690,21 @@ class _Law1BodyState extends State<Law1Body> {
               } else {
                 chap12show = true;
                 chapter12.add(ChapRow(
-                  name: 'করদাতা অর্থনৈতিক কার্যক্রম নিরীক্ষা এবং অনুসন্ধান',
+                  name: 'করদাতার অর্থনৈতিক কার্যক্রম নিরীক্ষা এবং অনুসন্ধান',
                   num: '৯০',
+                  leftalignment: 15.0,
+                  colorno: '0',
+                  dir: 'law',
+                ));
+
+                chapter12.add(
+                  SizedBox(
+                    height: 1,
+                  ),
+                );
+                chapter12.add(ChapRow(
+                  name: 'বার্ষিক নিরীক্ষিত আর্থিক বিবরণী দাখিল',
+                  num: '৯০ক',
                   leftalignment: 15.0,
                   colorno: '0',
                   dir: 'law',
@@ -1795,7 +1809,7 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter13.add(ChapRow(
-                  name: 'দেওয়ানী কাযবিধির অধীন মূসক কর্মকর্তার ক্ষমতা',
+                  name: 'দেওয়ানী কার্যবিধির অধীন মূসক কর্মকর্তার ক্ষমতা',
                   num: '৯৬',
                   leftalignment: 15.0,
                   dir: 'law',
@@ -1983,7 +1997,7 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter14.add(ChapRow(
-                  name: 'ফরম, নোটিশ এবং দলিলপত্রের সত্যায়ন',
+                  name: 'ফরম, নোটিশ এবং দলিলাদির সত্যায়ন',
                   num: '১০৮',
                   leftalignment: 10.0,
                   colorno: '1',
@@ -2251,7 +2265,7 @@ class _Law1BodyState extends State<Law1Body> {
                   ),
                 );
                 chapter16.add(ChapRow(
-                  name: 'হাইকোর্ট বিভাগে রিভিশন',
+                  name: 'হাইকোর্ট বিভাগে আপীল',
                   num: '১২৪',
                   leftalignment: 10.0,
                   colorno: '1',

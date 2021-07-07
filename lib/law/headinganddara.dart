@@ -88,6 +88,12 @@ class _ChapRowState extends State<ChapRow> {
     setState(() {
       storagename = widget.name;
     });
+    if (widget.num == '১৮খ' && widget.dir == 'rule') {
+      setState(() {
+        storagename =
+            "অভ্যন্তরীণ ব্যাক-টু-ব্যাক ঋণপত্রের বিপরীতে বৈদেশিক মুদ্রার বিনিময়ে পণ্য বা সেবা সরবরাহ";
+      });
+    }
     if (widget.num == '২৩' && widget.dir == 'rule') {
       setState(() {
         storagename =

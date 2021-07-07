@@ -1,8 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:vatapp/pages/homepage.dart';
 import 'package:device_info/device_info.dart';
+import 'package:vatapp/widgets/text_widget.dart';
+import 'package:vatapp/widgets/login_button.dart';
+import 'package:vatapp/widgets/form_field.dart';
 
 class MySecurity extends StatefulWidget {
   @override
@@ -94,28 +98,224 @@ class _MySecurityState extends State<MySecurity> {
     }
   }
 
+  final codeController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
+      body:
+          /*ListView(
         children: <Widget>[
-          Image.asset('images/finalwelcomepagelogo.jpg'),
-          Card(
-            child: Container(
-              child: Text(
-                "কোডটি পেতে ০১৭৭৭৩৩৪৯৯৪ নাম্বার এ যোগাযোগ করুন",
-                textAlign: TextAlign.center,
+          Container(
+            child: Image.asset('images/finalwelcomepagelogo.jpg'),
+            height: MediaQuery.of(context).size.height * .3,
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height * 1.5,
+            decoration: BoxDecoration(
+              color: Colors.pinkAccent[100],
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
               ),
             ),
-          ),
-          Card(
+            padding: EdgeInsets.only(top: 10),
             child: Column(
-              children: <Widget>[
+              children: [
+                Card(
+                  elevation: 0,
+                  color: c,
+                  child: Container(
+                    padding: EdgeInsets.all(15),
+                    child: Text(
+                      "কোডটি পেতে ০১৭৭৭৩৩৪৯৯৪ নাম্বার এ যোগাযোগ করুন",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                Card(
+                  elevation: 0,
+                  color: c,
+                  child: Column(
+                    children: <Widget>[
+                      (deviceId1 != "")
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text("$deviceId1"),
+                                IconButton(
+                                  icon: Icon(Icons.content_copy),
+                                  onPressed: () {
+                                    Clipboard.setData(
+                                        new ClipboardData(text: deviceId1));
+                                    Fluttertoast.showToast(
+                                        msg: 'Text copied : $deviceId1',
+                                        gravity: ToastGravity.CENTER);
+                                  },
+                                )
+                              ],
+                            )
+                          : Container(),
+                      MaterialButton(
+                        color: Colors.lightBlue,
+                        child: Text("Get device ID"),
+                        onPressed: () async {
+                          deviceId = await _getId();
+                          setState(() {
+                            deviceId1 = deviceId;
+                          });
+                          print("deviceID");
+                          print(deviceId1);
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                Card(
+                  elevation: 0,
+                  color: c,
+                  child: Column(
+                    children: <Widget>[
+                      TextField(
+                        decoration: InputDecoration(
+                          hintText: " Give the Code",
+                        ),
+                        onChanged: (value) {
+                          code = value;
+                        },
+                      ),
+                      MaterialButton(
+                        color: Colors.lightBlue,
+                        child: Text("GO"),
+                        onPressed: () async {
+                          deviceId = await _getId();
+                          setState(() {
+                            deviceId1 = deviceId;
+                          });
+                          print("code = $code");
+                          if (check(deviceId1, code)) {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage()));
+                          } else {
+                            Fluttertoast.showToast(
+                                msg: 'Wrong Code',
+                                gravity: ToastGravity.CENTER,
+                                toastLength: Toast.LENGTH_LONG);
+                          }
+                        },
+                      ),
+                      SizedBox(
+                        height: 40,
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),*/
+          SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(100),
+                bottomRight: Radius.circular(100),
+              ),
+              child: Image(
+                image: AssetImage('images/finalwelcomepagelogo.jpg'),
+              ),
+            ),
+            Column(
+              children: [
+                SizedBox(
+                  height: 20,
+                ),
+                Form(
+                  key: formKey,
+                  child: MyTextFormField(
+                    controller: codeController,
+                    onChange: (val) {
+                      code = val;
+                    },
+                    labelText: "Please enter your code",
+                    validationMassage: "Code field shouldn't empty",
+                    isPass: true,
+                    obscureText: true,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                MyLoginButton(
+                  label: " GO ",
+                  onClick: () async {
+                    if (formKey.currentState.validate()) {
+                      deviceId = await _getId();
+                      setState(() {
+                        deviceId1 = deviceId;
+                      });
+                      print("code = $code");
+                      if (check(deviceId1, code)) {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomePage()));
+                      } else {
+                        Fluttertoast.showToast(
+                            msg: 'Wrong Code',
+                            gravity: ToastGravity.CENTER,
+                            toastLength: Toast.LENGTH_LONG);
+                      }
+                    }
+                  },
+                ),
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                SizedBox(
+                  height: 30,
+                ),
+                MyText(
+                  label: "কোডটি পেতে ০১৭৭৭৩৩৪৯৯৪ নাম্বার এ যোগাযোগ করুন",
+                  size: 20.0,
+                  textAlignment: TextAlign.center,
+                  fontWeight: FontWeight.bold,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                MyLoginButton(
+                  label: "GET DEVICE ID",
+                  onClick: () async {
+                    deviceId = await _getId();
+                    setState(() {
+                      deviceId1 = deviceId;
+                    });
+                    print("deviceID");
+                    print(deviceId1);
+                  },
+                ),
                 (deviceId1 != "")
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text("$deviceId1"),
+                          MyText(
+                            label: "$deviceId1 jbfau9hsafljdskf",
+                            color: Colors.green,
+                            size: 15.0,
+                          ),
                           IconButton(
                             icon: Icon(Icons.content_copy),
                             onPressed: () {
@@ -129,59 +329,10 @@ class _MySecurityState extends State<MySecurity> {
                         ],
                       )
                     : Container(),
-                MaterialButton(
-                  color: Colors.lightBlue,
-                  child: Text("Get device ID"),
-                  onPressed: () async {
-                    deviceId = await _getId();
-                    setState(() {
-                      deviceId1 = deviceId;
-                    });
-                    print("deviceID");
-                    print(deviceId1);
-                  },
-                ),
               ],
             ),
-          ),
-          Card(
-            child: Column(
-              children: <Widget>[
-                TextField(
-                  decoration: InputDecoration(
-                    hintText: "  Give the Code",
-                  ),
-                  onChanged: (value) {
-                    code = value;
-                  },
-                ),
-                MaterialButton(
-                  color: Colors.red,
-                  child: Text("GO"),
-                  onPressed: () async {
-                    deviceId = await _getId();
-                    setState(() {
-                      deviceId1 = deviceId;
-                    });
-                    print("code = $code");
-                    if (check(deviceId1, code)) {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
-                    } else {
-                      Fluttertoast.showToast(
-                          msg: 'Wrong Code',
-                          gravity: ToastGravity.CENTER,
-                          toastLength: Toast.LENGTH_LONG);
-                    }
-                  },
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 40,
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
